@@ -1,6 +1,6 @@
 <h1 align="center">Документация</h1>
 
-* #### [План автоматизации тестирования](http://example.com)
+* #### [План автоматизации тестирования](https://github.com/yanpilogova/diploma/blob/master/docs/plan.md)
 
 <h1 align="center">Процедура запуска авто-тестов</h1>
 
