@@ -11,9 +11,6 @@ public class DataHelper {
     private DataHelper() {
     }
 
-    public static void getChineseOwner() {
-    }
-
     @Value
     public static class CardNumber {
         private String cardNumber;
@@ -66,6 +63,11 @@ public class DataHelper {
 
     public static String getRussianOwner() {
         Faker faker = new Faker(new Locale("ru"));
+        return faker.name().fullName();
+    }
+
+    public static String getChineseOwner() {
+        Faker faker = new Faker(new Locale("cn"));
         return faker.name().fullName();
     }
 
