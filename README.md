@@ -25,12 +25,12 @@ java -Dspring.datasource.url=jdbc:postgresql://185.119.57.172:5432/app -jar arti
 
 4. В новом терминале запустить авто-тесты командой для MySQL:
 ```
-gradlew clean test -Durl=jdbc:mysql://185.119.57.172:3306/app
+gradlew clean test -Ddb.url=jdbc:mysql://185.119.57.172:3306/app
 ```
 
 5. для PostgreSQL:
 ```
-gradlew clean test -Durl=jdbc:postgresql://185.119.57.172:5432/app
+gradlew clean test -Ddb.url=jdbc:postgresql://185.119.57.172:5432/app
 ```
 
 6. Сгенерировать отчеты двумя командами:
