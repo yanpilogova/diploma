@@ -38,8 +38,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithStatusApproved() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(0);
@@ -54,8 +53,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithStatusDeclined() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getDeclinedCardNumber();
         val month = DataHelper.getMonth(1);
         val year = DataHelper.getYear(0);
@@ -70,8 +68,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithRussianOwner() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(0);
@@ -84,8 +81,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithChineseOwner() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(0);
@@ -98,22 +94,20 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithInvalidCardNumber() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getInvalidCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(1);
         val owner = DataHelper.getValidOwner();
         val cvc = DataHelper.getCorrectCVC();
-        paymentPage.fillPaymentFormat(cardNumber, month, year, owner, cvc);
-        paymentPage.checkErrorNotification();
+        creditPage.fillCreditPaymentFormat(cardNumber, month, year, owner, cvc);
+        creditPage.checkErrorCreditNotification();
     }
 
     @Test
     void shouldPaymentByCreditCardWithIncorrectCardNumber() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getIncorrectCardNumber();
         val month = DataHelper.getMonth(2);
         val year = DataHelper.getYear(1);
@@ -126,8 +120,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithInvalidMonth() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getInvalidMonth();
         val year = DataHelper.getYear(0);
@@ -140,8 +133,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithExpiredOneYear() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(-1);
         val year = DataHelper.getYear(-1);
@@ -154,8 +146,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithTheWrongYear() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(6);
@@ -168,9 +159,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithInvalidOwner() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        //val paymentPage = new PaymentPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(3);
         val year = DataHelper.getYear(0);
@@ -183,9 +172,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithIncorrectCVC() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        //val paymentPage = new PaymentPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(-3);
         val year = DataHelper.getYear(0);
@@ -198,8 +185,7 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithBlankFields() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getCardWithoutNumber();
         val month = DataHelper.getEmptyMonth();
         val year = DataHelper.getEmptyYear();
@@ -211,25 +197,9 @@ public class CreditCardPaymentTest {
     }
 
     @Test
-    void shouldPaymentByCreditCardWithBlankFieldCardNumber() {
-        val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
-        val cardNumber = DataHelper.getCardWithoutNumber();
-        val month = DataHelper.getMonth(-3);
-        val year = DataHelper.getYear(0);
-        val owner = DataHelper.getValidOwner();
-        val cvc = DataHelper.getCorrectCVC();
-        creditPage.fillCreditPaymentFormat(cardNumber, month, year, owner,cvc);
-        creditPage.checkWrongCreditFormat();
-        creditPage.verifyCreditEmptyField();
-    }
-
-    @Test
     void shouldPaymentByCreditCardWithEmptyYear() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(6);
@@ -242,21 +212,20 @@ public class CreditCardPaymentTest {
     @Test
     void shouldPaymentByCreditCardWithEmptyMonth() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getEmptyMonth();
         val year = DataHelper.getYear(6);
         val owner = DataHelper.getValidOwner();
         val cvc = DataHelper.getCorrectCVC();
         creditPage.fillCreditPaymentFormat(cardNumber, month, year,owner, cvc);
-        creditPage.checkInvalidCreditCardExpirationDate();
+       creditPage.checkWrongCreditFormat();
     }
+
     @Test
     void shouldPaymentByCreditCardWithEmptyCvc() {
         val dashboardPage = new DashboardPage();
-        val creditPage = new CreditPage();
-        dashboardPage.getPaymentByCreditCard();
+        val creditPage = dashboardPage.getPaymentByCreditCard();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(6);

@@ -38,8 +38,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithStatusApproved() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(0);
@@ -54,8 +53,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithStatusDeclined() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getDeclinedCardNumber();
         val month = DataHelper.getMonth(1);
         val year = DataHelper.getYear(0);
@@ -70,37 +68,34 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithRussianOwner() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(0);
         val owner = DataHelper.getRussianOwner();
         val cvc = DataHelper.getCorrectCVC();
         paymentPage.fillPaymentFormat(cardNumber, month, year, owner, cvc);
-        paymentPage.checkSuccessNotification();
+        paymentPage.checkErrorNotification();
     }
 
     @Test
     void shouldPaymentByDebitCardWithChineseOwner() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getDeclinedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(0);
         val owner = DataHelper.getChineseOwner();
         val cvc = DataHelper.getCorrectCVC();
         paymentPage.fillPaymentFormat(cardNumber, month, year, owner, cvc);
-        paymentPage.checkSuccessNotification();
+        paymentPage.checkErrorNotification();
     }
 
 
     @Test
     void shouldPaymentByDebitCardWithInvalidCardNumber() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getInvalidCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(1);
@@ -113,8 +108,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithIncorrectCardNumber() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getIncorrectCardNumber();
         val month = DataHelper.getMonth(2);
         val year = DataHelper.getYear(1);
@@ -127,8 +121,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithInvalidMonth() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getInvalidMonth();
         val year = DataHelper.getYear(0);
@@ -141,8 +134,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithExpiredOneYear() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(-1);
         val year = DataHelper.getYear(-1);
@@ -155,8 +147,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithTheWrongYear() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(0);
         val year = DataHelper.getYear(6);
@@ -169,8 +160,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithInvalidOwner() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(3);
         val year = DataHelper.getYear(0);
@@ -183,8 +173,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithIncorrectCVC() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(-3);
         val year = DataHelper.getYear(0);
@@ -197,8 +186,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithBlankFields() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getDebitCardPayment();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getCardWithoutNumber();
         val month = DataHelper.getEmptyMonth();
         val year = DataHelper.getEmptyYear();
@@ -211,8 +199,7 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithEmptyYear() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getPaymentByCreditCard();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(2);
         val year = DataHelper.getEmptyYear();
@@ -225,28 +212,26 @@ public class DebitCardPaymentTest {
     @Test
     void shouldPaymentByDebitCardWithEmptyMonth() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getPaymentByCreditCard();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getEmptyMonth();
         val year = DataHelper.getYear(6);
         val owner = DataHelper.getValidOwner();
         val cvc = DataHelper.getCorrectCVC();
         paymentPage.fillPaymentFormat(cardNumber, month, year, owner, cvc);
-        paymentPage.checkWrongFormat();
+        paymentPage.verifyEmptyField();
     }
 
     @Test
     void shouldPaymentByDebitCardWithEmptyCvc() {
         val dashboardPage = new DashboardPage();
-        val paymentPage = new PaymentPage();
-        dashboardPage.getPaymentByCreditCard();
+        val paymentPage = dashboardPage.getDebitCardPayment();
         val cardNumber = DataHelper.getApprovedCardNumber();
         val month = DataHelper.getMonth(2);
         val year = DataHelper.getYear(6);
         val owner = DataHelper.getValidOwner();
         val cvc = DataHelper.getEmptyCVC();
         paymentPage.fillPaymentFormat(cardNumber, month, year, owner, cvc);
-        paymentPage.checkWrongFormat();
+        paymentPage.checkErrorNotification();
     }
 }
