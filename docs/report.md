@@ -11,9 +11,9 @@ testImplementation 'com.codeborne:selenide:5.23.0'
 testImplementation 'io.qameta.allure:allure-selenide:2.14.0'
 
 ## Количество тест-кейсов
-* Всего: 26 тест-кейсов
-* Успешных: 18
-* Неуспешных: 8
+* Всего: 32 теста
+* Успешных: 21
+* Неуспешных: 11
 
 
 ## Отчет Gradle:
