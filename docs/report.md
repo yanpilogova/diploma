@@ -16,6 +16,7 @@ testImplementation 'io.qameta.allure:allure-selenide:2.14.0'
 * Неуспешных: 8
 
 
-## Отчеты Gradle:
-![Image text](https://github.com/yanpilogova/diploma/blob/master/docs/gradle.png)
-![Image text](https://github.com/yanpilogova/diploma/blob/master/docs/gradle2.png)
+## Отчет Gradle:
+![Image text](https://github.com/yanpilogova/diploma/blob/master/docs/generalresult.png)
+## Отчет Allure:
+![Image text](https://github.com/yanpilogova/diploma/blob/master/docs/allure.png)
