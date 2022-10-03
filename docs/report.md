@@ -20,3 +20,8 @@ testImplementation 'io.qameta.allure:allure-selenide:2.14.0'
 ![Image text](https://github.com/yanpilogova/diploma/blob/master/docs/generalresult.png)
 ## Отчет Allure:
 ![Image text](https://github.com/yanpilogova/diploma/blob/master/docs/allure.png)
+
+
+## Отчет
+* #### [Созданы 3 баг репорта по найденным дефектам](https://github.com/yanpilogova/diploma/issues)
+* #### Написаны 32 автотеста
